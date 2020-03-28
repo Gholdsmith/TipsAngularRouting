@@ -12,9 +12,22 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-export const appRoutes: Routes = [];
+export const appRoutes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'users',
+    component: UsersComponent
+  },
+  {
+    path: 'servers',
+    component: ServersComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -29,6 +42,7 @@ export const appRoutes: Routes = [];
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ServersService],
   bootstrap: [AppComponent]
